@@ -13,4 +13,4 @@ Una vez que se ha convertido a alguna moneda se puede utilizar la **cantidad** s
 Nota: el tipo de moneda tiene que ser dado con el código de ISO como se indica al inicio del programa.
 
 
-[Ejemplo](img.png)
+![Ejemplo](img.png)
