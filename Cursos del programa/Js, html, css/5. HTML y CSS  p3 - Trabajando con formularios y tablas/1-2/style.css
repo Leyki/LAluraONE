@@ -1,0 +1,125 @@
+:root {
+    --hover-color-gen: rgb(255 246 220);
+    --active-color-gen: rgb(156, 235, 255);
+}
+
+header {
+    background: #bbbbbb;
+}
+
+.header-caja {
+    width: 940px;
+    position: relative;
+    margin: 0 auto;
+}
+
+
+nav {
+    top: 114px;
+    right: 100px;
+    position: absolute;
+}
+
+nav ul li {
+    display: inline;
+    margin: 15px;
+}
+
+nav a {
+    text-transform: uppercase;
+    color: black;
+    font-weight: bold;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: var(--hover-color-gen);
+    text-decoration: underline;
+}
+
+.productos {
+    width: 940px;
+    padding: 50px;
+    margin: 0 auto;
+    mask-clip: 100px;
+    fill: "transparent";
+}
+
+.productos h2 {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.productos li:hover h2 {
+    font-size: 28px;
+}
+
+.productos li {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    width: 30%;
+    margin: 0 1.5%;
+    /* below is same as - border: 5px groove black */
+    border-width: 5px;
+    border-style: groove;
+    border-color: black;
+    border-radius: 3px;
+    padding: 30px 20px;
+    box-sizing: border-box;
+
+}
+
+.productos li:hover {
+    border-color: var(--hover-color-gen);
+}
+
+.productos li:active {
+    border-color: var(--active-color-gen);
+}
+
+.productos-descripcion {
+    font-size: 18px;
+}
+
+.productos-precio {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+footer {
+    text-align: center;
+    background-image: url("imagenes/bg.jpg");
+    padding: 20px;
+    font-size: 13px;
+    color: white;
+}
+
+
+.copyright {
+    margin: 20px;
+}
+
+main {
+    width: 940px;
+    margin: 0 auto;
+}
+
+form {
+    margin: 40px 0;
+}
+
+form label {
+    display: block;
+    font-size: 16px;
+    margin: 0 0 3px;
+}
+form input {
+    display: block;
+    margin: 0 0 10px;
+    padding: 0px 25px;
+    width: 22%;
+}
