@@ -9,5 +9,4 @@ public class ExchangePair {
     String targetCode;
     Double conversionRate;
     Double conversionResult;
-
 }

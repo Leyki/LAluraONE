@@ -28,10 +28,10 @@ public class Utils {
                 if (((chr < '0' || chr > '9') && chr != period)) // Character.isDigit() can go here too.
                     return false;
             }
-
         }
         return true;
     }
+
     static public void printTabulated(String[] printables, int padding, int printablesPerLine) {
         for (int i = 0; i < printables.length; i++) {
             System.out.printf("%-" + printablesPerLine + "s", printables[i]);

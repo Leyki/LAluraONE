@@ -37,24 +37,23 @@ public class ExchangeRateApi {
         }
         System.out.println("\n^Monedas soportadas^");
     }
+
     static public void requestCurrencyData() {
         try {
             HttpResponse<String> response = client.send(currencyDatarequest, HttpResponse.BodyHandlers.ofString());
             System.out.println(response);
             System.out.println(response.body());
-            //peliculas = gson.fromJson(response.body(), Peliculas.class);
             codes = gson.fromJson(response.body(), ExchangeCodes.class);
             System.out.println(Arrays.toString(codes.supportedCodes));
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     public boolean requestExchange(double amount, String from, String to) {
         HttpRequest request = null;
         try {
-            if (from != "" && to != "") {
+            if (from != "" && to != "") { // null would be better here
                 if (amount == 0)
                     request = HttpRequest.newBuilder().uri(URI.create(URL + "/pair/" + from + "/" + to)).build();
                 else
@@ -79,17 +78,9 @@ public class ExchangeRateApi {
             else
                 return false;
 
-
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
 
     }
-
-
-//    peliculas = gson.fromJson(response.body(),Peliculas .class);
-//    //System.out.println(response.headers());
-//            System.out.println(Arrays.toString(peliculas.lista));
-
-
 }

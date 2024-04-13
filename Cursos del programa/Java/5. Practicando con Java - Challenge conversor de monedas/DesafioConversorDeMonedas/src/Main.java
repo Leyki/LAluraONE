@@ -13,8 +13,6 @@ public class Main {
         System.out.println("Uso: 'cantidad' 'moneda' a 'moneda' (Ejem. 50 ars a usd)");
         while (true) {
             String[] inputs = scanner.nextLine().split(" ");
-//            System.out.println(Arrays.toString(inputs));
-
             boolean success = false;
             if (!Utils.isNumeric(inputs[0], '.')) {
                 System.out.println("La cantidad dada no es un número."); continue;
