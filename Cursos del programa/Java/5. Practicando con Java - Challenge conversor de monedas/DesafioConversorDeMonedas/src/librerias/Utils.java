@@ -8,27 +8,26 @@ public class Utils {
      * @param period can be set to 'n' for integer numbers.
      */
     public static boolean isNumeric(String str, char period) {
-        if (str == null)
+        if (str == null || str.length() == 0)
             return false;
         char[] data = str.toCharArray();
-        if (data.length == 0)
-            return false;
-        int index = 0;
-        if (data[0] == '-' && data.length > 1)
-            index = 1;
+        
+        int i = 0;
+        if (data[0] == '-' && data.length > 1) i = 1;
 
         if (period == 'n') {
-            for (char chr : data) {
-                if (chr < '0' || chr > '9') // Character.isDigit() can go here too.
+        	for (; i < data.length ; i++) {
+                if (data[i] < '0' || data[i] > '9') // Character.isDigit() can go here too.
                     return false;
             }
         }
         else {
-            for (char chr : data) {
-                if (((chr < '0' || chr > '9') && chr != period)) // Character.isDigit() can go here too.
+        	for (; i < data.length ; i++) {
+                if (((data[i] < '0' || data[i] > '9') && data[i] != period)) { // Character.isDigit() can go here too.
                     return false;
             }
         }
+	}
         return true;
     }
 

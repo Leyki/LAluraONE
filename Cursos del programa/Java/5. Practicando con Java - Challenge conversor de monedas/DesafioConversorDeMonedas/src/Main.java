@@ -1,6 +1,5 @@
 import java.util.Scanner;
 import librerias.Utils;
-import java.time.LocalTime;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,7 +21,7 @@ public class Main {
                 if (myExchangeRate.lastExchangeRate1 != null)
                     success = myExchangeRate.requestExchange(Double.parseDouble(inputs[0]), "", "");
                 else
-                    System.out.println("Se ha dado una cantidad pero no hay niguna 'moneda a moneda' guardada.");
+                    System.out.println("Se ha dado una cantidad pero no hay ninguna 'moneda a moneda' guardada.");
             }
             else if (inputs.length < 4) {
                 System.out.println("No se ha sado suficientes argumentos."); continue;
@@ -34,5 +33,6 @@ public class Main {
                 System.out.println("Error de api, tipo de moneda o la cantidad inputada es demasiada.");
             }
         }
+        
     }
 }
