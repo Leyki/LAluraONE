@@ -51,17 +51,15 @@ public class ExchangeRateApi {
     }
 
     public boolean requestExchange(double amount, String from, String to) {
-        HttpRequest request = null;
+        HttpRequest request;
+        if (amount < 1) amount = 1;
+
         try {
-            if (from != "" && to != "") { // null would be better here
-                if (amount == 0)
-                    request = HttpRequest.newBuilder().uri(URI.create(URL + "/pair/" + from + "/" + to)).build();
-                else
-                    request = HttpRequest.newBuilder().uri(URI.create(URL + "/pair/" + from + "/" + to + "/" + amount)).build();
+            if (from != null && to != null) {
+                request = HttpRequest.newBuilder().uri(URI.create(URL + "/pair/" + from + "/" + to + "/" + amount)).build();
             }
             else {
-                if (amount != 0)
-                    request = HttpRequest.newBuilder().uri(URI.create(URL + "/pair/" + lastExchangeRate1 + "/" + lastExchangeRate2 + "/" + amount)).build();
+                request = HttpRequest.newBuilder().uri(URI.create(URL + "/pair/" + lastExchangeRate1 + "/" + lastExchangeRate2 + "/" + amount)).build();
             }
             if (request == null)
                 return false;
@@ -71,7 +69,7 @@ public class ExchangeRateApi {
             if (Objects.equals(exchangePair.result, "success")) {
                 lastExchangeRate1 = from;
                 lastExchangeRate2 = to;
-                System.out.printf("%.2f%s = %.2f%s (x%.4f) - %s %n",
+                System.out.printf("%.4f%s = %.4f%s (x%.4f) - %s %n",
                         amount, exchangePair.baseCode, exchangePair.conversionResult, exchangePair.targetCode, exchangePair.conversionRate, LocalTime.now());
                 return true;
             }

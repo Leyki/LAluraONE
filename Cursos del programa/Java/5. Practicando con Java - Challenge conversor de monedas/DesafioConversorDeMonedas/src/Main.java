@@ -9,17 +9,19 @@ public class Main {
         var myExchangeRate = new ExchangeRateApi();
 
         ExchangeRateApi.showSupportedCurrencies();
-        System.out.println("Uso: 'cantidad' 'moneda' a 'moneda' (Ejem. 50 ars a usd)");
+        System.out.println("Uso: 'cantidad' 'moneda' a 'moneda' (Ejem. 50 ars a usd). 'salir' para terminar.");
         while (true) {
             String[] inputs = scanner.nextLine().split(" ");
+            if (inputs[0].equals("salir")) break;
             boolean success = false;
+
             if (!Utils.isNumeric(inputs[0], '.')) {
                 System.out.println("La cantidad dada no es un número."); continue;
             }
 
             if (inputs.length == 1) {
                 if (myExchangeRate.lastExchangeRate1 != null)
-                    success = myExchangeRate.requestExchange(Double.parseDouble(inputs[0]), "", "");
+                    success = myExchangeRate.requestExchange(Double.parseDouble(inputs[0]), null, null);
                 else
                     System.out.println("Se ha dado una cantidad pero no hay ninguna 'moneda a moneda' guardada.");
             }
