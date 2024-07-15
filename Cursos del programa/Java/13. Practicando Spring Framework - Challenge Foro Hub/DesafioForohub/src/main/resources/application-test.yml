@@ -1,0 +1,6 @@
+spring:
+  application.name: forohub
+  datasource:
+    url: jdbc:mysql://localhost/forohub_test?createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: root
+    password: 1234
