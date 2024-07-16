@@ -22,6 +22,8 @@ import static org.springframework.data.web.config.EnableSpringDataWebSupport.Pag
 public class TokenService {
     @Value("${api.security.secret}")
     private String apiSecret;
+    @Value("${api.security.token-duration}")
+    private int tokenDuration;
 
     public String generarToken(Usuario usuario) {
         try {
@@ -39,7 +41,7 @@ public class TokenService {
     }
 
     private Instant generarFechaExpiracion() {
-        return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-03:00"));
+        return LocalDateTime.now().plusHours(tokenDuration).toInstant(ZoneOffset.of("-03:00"));
     }
 
     public String getSubject(String token) {

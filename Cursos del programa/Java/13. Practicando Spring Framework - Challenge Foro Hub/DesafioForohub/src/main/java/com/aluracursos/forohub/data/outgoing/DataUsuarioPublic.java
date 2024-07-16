@@ -18,7 +18,6 @@ public record DataUsuarioPublic(
         String nombre,
         String correo_electronico
 ) {
-    // Not sure why but users ends with duplicated as password and username
     public DataUsuarioPublic(Usuario usuario) {
         this(usuario.getId(), usuario.getNombre(), usuario.getCorreo_electronico());
     }

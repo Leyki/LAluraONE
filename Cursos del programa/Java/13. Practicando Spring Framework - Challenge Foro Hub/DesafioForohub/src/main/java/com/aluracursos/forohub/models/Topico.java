@@ -1,11 +1,10 @@
 package com.aluracursos.forohub.models;
 
+import com.aluracursos.forohub.data.incoming.DataTopicoActualizar;
+import com.aluracursos.forohub.data.incoming.DataTopicoNuevo;
+import com.aluracursos.forohub.data.outgoing.DataTopico;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import org.springframework.security.core.userdetails.UserDetails;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -14,6 +13,7 @@ import java.util.List;
 @Entity(name = "Topico")
 @Table(name = "topico")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -26,13 +26,11 @@ public class Topico {
     private String titulo;
     private String mensaje;
     private LocalDateTime fechaCreacion;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "autor_id")
+    @ManyToOne(fetch = FetchType.LAZY)
     private Usuario autor;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "curso_id")
+    @ManyToOne(fetch = FetchType.LAZY)
     private Curso curso;
-    @OneToMany(mappedBy = "topico", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "topico", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Respuesta> respuestas;
 
 
@@ -44,6 +42,25 @@ public class Topico {
         this.autor = autor;
         this.curso = curso;
     }
+
+    public Topico(DataTopicoNuevo data, Usuario usuario, Curso curso) {
+        this(
+                Status.OPEN,
+                data.titulo(),
+                data.mensaje(),
+                LocalDateTime.now(),
+                usuario,
+                curso
+        );
+    }
+
+    public void actualizar(DataTopicoActualizar data) {
+        if (data.status() != null) this.setStatus(data.status());
+        if (data.mensaje() != null) this.setMensaje(data.mensaje());
+        if (data.titulo() != null) this.setTitulo(data.titulo());
+        //if (data.cursoId() != null) this.setCurso(data.cursoId()); todo
+    }
+
 }
 
 

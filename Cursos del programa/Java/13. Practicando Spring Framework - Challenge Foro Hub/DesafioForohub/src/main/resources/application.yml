@@ -6,7 +6,7 @@ spring:
     username: root
     password: 1234
   jpa:
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
         format_sql: true
@@ -17,3 +17,4 @@ server:
 api:
   security:
     secret: ${JWT_SECRET:123456}
+    token-duration: 10

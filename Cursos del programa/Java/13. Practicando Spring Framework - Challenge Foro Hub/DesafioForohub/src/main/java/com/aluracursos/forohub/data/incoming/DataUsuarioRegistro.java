@@ -1,7 +1,9 @@
 package com.aluracursos.forohub.data.incoming;
 
+import jakarta.validation.constraints.NotBlank;
+
 public record DataUsuarioRegistro(
-        String nombre,
-        String contraseña,
-        String correo_electronico
+        @NotBlank String nombre,
+        @NotBlank String contraseña,
+        @NotBlank String correo_electronico
 ) {}

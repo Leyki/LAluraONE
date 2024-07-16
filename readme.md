@@ -7,7 +7,7 @@ The following are all my answers to challenge projects made by Alura as part of 
 ### [Conversor de monedas (consola, java)](https://github.com/Leyki/LAluraONE/tree/master/Cursos%20del%20programa/Java/5.%20Practicando%20con%20Java%20-%20Challenge%20conversor%20de%20monedas/DesafioConversorDeMonedas)
 Un conversor de monedas simple y facil de usar con exchangerate-api.
 
-### [LiterAlura (consola, java, spring, postgresql)]()
+### [LiterAlura (consola, java, spring, postgresql)](https://github.com/Leyki/LAluraONE/tree/master/Cursos%20del%20programa/Java/9.%20Challenge%20Literatura%20con%20Spring%20Boot/DesafioLiterAlura)
 Una aplicación para guardar libros localmente en una DB y realizar un par de operaciones con esta. Utiliza [Gutendex](https://gutendex.com/) como proveedor inicial de datos.
 
 ### [Forohub (api, spring, java, mysql)]()

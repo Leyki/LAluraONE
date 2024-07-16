@@ -1,6 +1,8 @@
 package com.aluracursos.forohub.data.incoming;
 
+import jakarta.validation.constraints.NotNull;
+
 public record DataTopicoEliminar(
-        Long id
+        @NotNull Long id
 ) {
 }

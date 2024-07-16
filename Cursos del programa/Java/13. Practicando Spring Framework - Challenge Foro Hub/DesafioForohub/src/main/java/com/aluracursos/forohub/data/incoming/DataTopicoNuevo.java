@@ -1,11 +1,12 @@
 package com.aluracursos.forohub.data.incoming;
 
-import com.aluracursos.forohub.data.DataCurso;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public record DataTopicoNuevo(
-        String titulo,
-        String autor, // in reality this should use the token to get the subject instead
-        String mensaje,
-        DataCurso curso
+        @NotBlank String titulo,
+        @NotBlank String autor, // in reality this should use the token to get the subject instead
+        @NotBlank String mensaje,
+        @NotNull Long cursoId
 ) {
 }
